@@ -9,7 +9,10 @@ const forecast = (longitude, latitude, callback) => {
         } else if (body.error) {
             callback('Unable to find location',undefined)
         } else {
-            callback(undefined,body.currently.temperature + ' ' + body.daily.data[0].summary)
+            callback(
+                undefined,
+                'Current Temp: ' + body.currently.temperature + ', ' + body.daily.summary + ' High Temp Today: ' + body.daily.data[0].temperatureHigh + ' Low Temp Today: ' + body.daily.data[0].temperatureLow
+            )
         }
     })
 }
